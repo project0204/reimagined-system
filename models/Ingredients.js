@@ -17,6 +17,13 @@ Ingredient.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    image_url: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isUrl: true,
+      },
+    },
     stock: {
       type: DataTypes.INTEGER,
       allowNull: true,
