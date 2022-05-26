@@ -7,8 +7,8 @@ Pizza.hasMany(Ingredient, {
   foreignKey: "ingredient_id",
 });
 
-// Ingredient belongsToMany Pizza
-Ingredient.belongsToMany(Pizza, {
+// Ingredient belongsTo Pizza
+Ingredient.belongsTo(Pizza, {
   foreignKey: "pizza_id",
 });
 
