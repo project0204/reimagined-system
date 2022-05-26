@@ -24,6 +24,13 @@ Pizza.init(
         isDecimal: true,
       },
     },
+    image_url: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isUrl: true,
+      },
+    },
     stock: {
       type: DataTypes.INTEGER,
       allowNull: true,
