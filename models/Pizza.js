@@ -39,6 +39,13 @@ Pizza.init(
         isNumeric: true,
       },
     },
+    ingredient_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "ingredient",
+        key: "id",
+      },
+    },
   },
   {
     sequelize,
