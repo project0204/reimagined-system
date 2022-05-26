@@ -1,3 +1,9 @@
-DROP DATABASE IF EXISTS foston_pizza_db;
+CREATE TABLE ingredients (
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    ingredient_name VARCHAR(30) NOT NULL,
+    stock_remaining INTEGER NOT NULL 
+)
 
-CREATE DATABASE foston_pizza_db;
+CREATE TABLE pizza (
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+)
