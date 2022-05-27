@@ -57,6 +57,22 @@ const getAllPizzas = (req, res) => {
         });
 }
 
+const createPizza = (req, res) => {
+    Post.create({
+        title: req.body.title,
+        price: req.body.price,
+        image_url: req.body.image_url,
+        stock: req.body.stock,
+        // maybe change this to req.params.ingredient_id in the future?        
+        ingredient_id: req.body.ingredient_id
+    })
+        .then(dbPostData => res.json(dbPostData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+}
+
 const updatePizza = (req, res) => {
     Pizza.update(
         {
