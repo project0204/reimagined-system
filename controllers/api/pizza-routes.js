@@ -1,4 +1,4 @@
-const { Pizza, Ingredient } = require('../models');
+const { Pizza, Ingredient } = require('../../models');
 
 const getPizza = (req, res) => {
     Pizza.findOne({
