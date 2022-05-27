@@ -1,0 +1,9 @@
+CREATE TABLE ingredients (
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    ingredient_name VARCHAR(30) NOT NULL,
+    stock_remaining INTEGER NOT NULL 
+)
+
+CREATE TABLE pizza (
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+)
