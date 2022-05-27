@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
+const Ingredient = require("./Ingredients");
 
 // create our Pizza model
 class Pizza extends Model { }
@@ -38,7 +39,16 @@ Pizza.init(
       validate: {
         isNumeric: true,
       },
-    }
+    },
+    ingredients: [
+      {
+        model: Ingredient,
+        references: {
+          model: 'ingredient',
+          key: 'id'
+        }
+      }
+    ]
   },
   {
     sequelize,

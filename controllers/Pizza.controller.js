@@ -1,62 +1,6 @@
-const router = require('express').Router();
-const { Pizza, Ingredient } = require('../../models');
+const { Pizza } = require('../models')
 
-router.get('/:id', (req, res) => {
-    Pizza.findOne({
-        where: {
-            id: req.params.id
-        },
-        attributes: [
-            'id',
-            'title',
-            'price',
-            'image_url',
-            'stock',
-        ],
-        include: [
-            {
-                model: Ingredient,
-                attributes: ['ingredient']
-            }
-        ]
-    })
-        .then(dbPizzaData => {
-            if (!dbPizzaData) {
-                res.status(404).json({ message: 'No pizza found with this id' });
-                return;
-            }
-            res.json(dbPizzaData);
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
-})
-
-router.get('/', (req, res) => {
-    Pizza.findAll({
-        attributes: [
-            'id',
-            'title',
-            'price',
-            'image_url',
-            'stock',
-        ],
-        include: [
-            {
-                model: Ingredient,
-                attributes: ['ingredient_name']
-            }
-        ]
-    })
-        .then(dbPizzaData => res.json(dbPizzaData))
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
-})
-
-router.post('/', (req, res) => {
+const createPizza = async (req, res) => {
     Pizza.create({
         title: req.body.title,
         price: req.body.price,
@@ -73,9 +17,56 @@ router.post('/', (req, res) => {
             console.log(err);
             res.status(500).json(err);
         });
-})
+};
 
-router.put('/:id', (req, res) => {
+const getPizzaById = async (req, res) => {
+    Pizza.findOne({
+        where: {
+            id: req.params.id
+        },
+        attributes: [
+            'id',
+            'title',
+            'price',
+            'image_url',
+            'stock',
+            'ingredients'
+        ],
+
+    })
+        .then(dbPizzaData => {
+            if (!dbPizzaData) {
+                res.status(404).json({ message: 'No pizza found with this id' });
+                return;
+            }
+            res.json(dbPizzaData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+};
+
+const getAllPizzas = async (req, res) => {
+    Pizza.findAll({
+        attributes: [
+            'id',
+            'title',
+            'price',
+            'image_url',
+            'stock',
+            'ingredients'
+        ],
+
+    })
+        .then(dbPizzaData => res.json(dbPizzaData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+};
+
+const updatePizzaById = async (req, res) => {
     Pizza.update(
         {
             ingredient_id: req.body.ingredient_id
@@ -92,9 +83,10 @@ router.put('/:id', (req, res) => {
             console.log(err);
             res.status(500).json(err);
         })
-})
 
-router.delete('/:id', (req, res) => {
+};
+
+const deletePizzaById = async (req, res) => {
     Pizza.delete({
         where: {
             id: req.params.id
@@ -111,6 +103,12 @@ router.delete('/:id', (req, res) => {
             console.log(err);
             res.status(400).json(err);
         })
-});
+};
 
-module.exports = router;
+module.exports = {
+    createPizza,
+    getPizzaById,
+    getAllPizzas,
+    updatePizzaById,
+    deletePizzaById
+}

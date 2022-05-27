@@ -13,7 +13,7 @@ Ingredient.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    ingredient_name: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -30,13 +30,6 @@ Ingredient.init(
       defaultValue: 10,
       validate: {
         isNumeric: true,
-      },
-    },
-    pizza_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "pizza",
-        key: "id",
       },
     },
   },
