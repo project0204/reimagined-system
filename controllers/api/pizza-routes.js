@@ -1,6 +1,7 @@
+const router = require('express').Router();
 const { Pizza, Ingredient } = require('../../models');
 
-const getPizza = (req, res) => {
+router.get('/:id', (req, res) => {
     Pizza.findOne({
         where: {
             id: req.params.id
@@ -31,9 +32,9 @@ const getPizza = (req, res) => {
             console.log(err);
             res.status(500).json(err);
         });
-}
+})
 
-const getAllPizzas = (req, res) => {
+router.get('/', (req, res) => {
     Pizza.findAll({
         attributes: [
             'id',
@@ -55,9 +56,9 @@ const getAllPizzas = (req, res) => {
             console.log(err);
             res.status(500).json(err);
         });
-}
+})
 
-const createPizza = (req, res) => {
+router.post('/', (req, res) => {
     Post.create({
         title: req.body.title,
         price: req.body.price,
@@ -71,9 +72,9 @@ const createPizza = (req, res) => {
             console.log(err);
             res.status(500).json(err);
         });
-}
+})
 
-const updatePizza = (req, res) => {
+router.put('/:id', (req, res) => {
     Pizza.update(
         {
             ingredient_id: req.body.ingredient_id
@@ -90,9 +91,9 @@ const updatePizza = (req, res) => {
             console.log(err);
             res.status(500).json(err);
         })
-}
+})
 
-const deletePizza = (req, res) => {
+router.delete('/:id', (req, res) => {
     Pizza.delete({
         where: {
             id: req.params.id
@@ -109,12 +110,6 @@ const deletePizza = (req, res) => {
             console.log(err);
             res.status(400).json(err);
         })
-}
+});
 
-module.exports = {
-    getPizza,
-    getAllPizzas,
-    createPizza,
-    updatePizza,
-    deletePizza,
-}
+module.exports = router;

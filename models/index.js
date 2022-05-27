@@ -4,7 +4,7 @@ const Ingredient = require("./Ingredients");
 
 // Pizza hasMany Ingredients
 Pizza.hasMany(Ingredient, {
-  foreignKey: "ingredient_id",
+  foreignKey: "pizza_id",
 });
 
 // Ingredient belongsTo Pizza
