@@ -12,12 +12,11 @@ router.get('/:id', (req, res) => {
             'price',
             'image_url',
             'stock',
-            'ingredient_id',
         ],
         include: [
             {
                 model: Ingredient,
-                attributes: ['pizza_id']
+                attributes: ['ingredient']
             }
         ]
     })
@@ -42,12 +41,11 @@ router.get('/', (req, res) => {
             'price',
             'image_url',
             'stock',
-            'ingredient_id',
         ],
         include: [
             {
                 model: Ingredient,
-                attributes: ['pizza_id']
+                attributes: ['ingredient']
             }
         ]
     })
@@ -59,7 +57,7 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    Post.create({
+    Pizza.create({
         title: req.body.title,
         price: req.body.price,
         image_url: req.body.image_url,
@@ -67,7 +65,10 @@ router.post('/', (req, res) => {
         // maybe change this to req.params.ingredient_id in the future?        
         ingredient_id: req.body.ingredient_id
     })
-        .then(dbPostData => res.json(dbPostData))
+        .then(dbPostData => {
+            console.log(`THIS IS THE REQUEST ------`, req)
+            res.json(dbPostData)
+        })
         .catch(err => {
             console.log(err);
             res.status(500).json(err);

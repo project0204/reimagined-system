@@ -10,21 +10,18 @@ const pizzaData = [
         "price": 19.99,
         "image_url": "https://www.jennycancook.com/wp-content/uploads/2013/02/PeppPizza_600.jpg",
         "stock": 30,
-        "pizza_id": 1
     },
     {
         "title": "Vegetarian",
         "price": 17.99,
         "image_url": "https://www.jennycancook.com/wp-content/uploads/2013/02/PeppPizza_600.jpg",
         "stock": 30,
-        "pizza_id": 2
     },
     {
         "title": "Pineapple",
         "price": 19.99,
         "image_url": "https://www.jennycancook.com/wp-content/uploads/2013/02/PeppPizza_600.jpg",
         "stock": 20,
-        "pizza_id": 3
     },
 ]
 

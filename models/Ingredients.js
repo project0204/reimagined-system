@@ -2,7 +2,7 @@ const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
 // create our Ingredient model
-class Ingredient extends Model {}
+class Ingredient extends Model { }
 
 // create fields/columns for Ingredients model
 Ingredient.init(
@@ -32,7 +32,7 @@ Ingredient.init(
         isNumeric: true,
       },
     },
-    pizza_id: {
+    ingredient: {
       type: DataTypes.INTEGER,
       references: {
         model: "pizza",
