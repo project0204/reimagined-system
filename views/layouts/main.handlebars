@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+    href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+    rel="stylesheet"/>
+    <title>Reimagine-system</title>
+</head>
+
+<body>
+	<!-- Navbar goes here -->
+	<nav class="bg-white shadow-lg">
+		<div class="max-w-6xl mx-auto px-4">
+			<div class="flex justify-between">
+				<div class="flex space-x-7">
+					<!-- Website Logo -->
+					<div>
+						<a href="#" class="flex items-center py-4 px-2">
+							<img src="/" alt="Logo" class="h-8 w-8 mr-2" />
+							<span class="font-semibold text-gray-500 text-lg"
+								>Reimagine-system</span
+							>
+						</a>
+					</div>
+					<!-- Primary Navbar items -->
+					<div class="hidden md:flex items-center space-x-1">
+						<a
+							href="../aboutus.handlebars"
+							class="py-4 px-2 text-green-500 border-b-4 border-green-500 font-semibold "
+							>About Us </a
+						>
+						<a
+							href="../usage.handlebars"
+							class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
+							>Usage</a
+						>
+						<a
+							href="../menu.handlebars"
+							class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
+							>Menu</a
+						>
+						<a
+							href="../homepage.handlebars"
+							class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
+							>Stock Tally</a
+						>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+    {{#if loggedIn}}
+    <button id="logout" class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-blue-400 rounded-md hover:bg-red-800 focus:outline-none focus:bg-purple-600">logout</button>
+    {{else}}
+    <a href="/login">login</a>
+    <a href="/signup">Sign Up!</a>
+    {{/if}}
+  </nav>
+  </header>
+    <main>
+      {{{ body }}}
+    </main>
+  </div>
+{{#if loggedIn}}
+<script src="/javascript/logout.js"></script>
+{{/if}}
+
+</body>
+</html>

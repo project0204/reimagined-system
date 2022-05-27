@@ -5,7 +5,7 @@ const auth = (req, res, next) => {
       res.redirect('/login');
     } else {
       next();
-    }
-  };
+  }
+};
   
 module.exports = auth;
