@@ -24,7 +24,7 @@ Ingredient.init(
         isUrl: true,
       },
     },
-    stock: {
+    perPizza: {
       type: DataTypes.INTEGER,
       allowNull: true,
       defaultValue: 10,
@@ -32,7 +32,7 @@ Ingredient.init(
         isNumeric: true,
       },
     },
-    ingredient: {
+    pizza_id: {
       type: DataTypes.INTEGER,
       references: {
         model: "pizza",

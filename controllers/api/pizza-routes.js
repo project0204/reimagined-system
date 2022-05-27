@@ -45,7 +45,7 @@ router.get('/', (req, res) => {
         include: [
             {
                 model: Ingredient,
-                attributes: ['ingredient']
+                attributes: ['ingredient_name']
             }
         ]
     })
