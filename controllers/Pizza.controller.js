@@ -30,7 +30,6 @@ const getPizzaById = async (req, res) => {
             'price',
             'image_url',
             'stock',
-            'ingredients'
         ],
 
     })
@@ -55,7 +54,6 @@ const getAllPizzas = async (req, res) => {
             'price',
             'image_url',
             'stock',
-            'ingredients'
         ],
 
     })

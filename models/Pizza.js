@@ -40,15 +40,6 @@ Pizza.init(
         isNumeric: true,
       },
     },
-    ingredients: [
-      {
-        model: Ingredient,
-        references: {
-          model: 'ingredient',
-          key: 'id'
-        }
-      }
-    ]
   },
   {
     sequelize,
