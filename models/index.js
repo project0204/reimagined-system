@@ -18,4 +18,5 @@ Ingredient.belongsToMany(Pizza, {
 module.exports = {
   Pizza,
   Ingredient,
+  PizzaIngredients,
 };
