@@ -1,11 +1,11 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-// create our Pizza model
-class Pizza extends Model {}
+// create our Ingredient model
+class Ingredient extends Model {}
 
-// create fields/columns for Pizza model
-Pizza.init(
+// create fields/columns for Ingredients model
+Ingredient.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -13,22 +13,23 @@ Pizza.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    title: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    price: {
-      type: DataTypes.DECIMAL,
-      allowNull: false,
-      validate: {
-        isDecimal: true,
-      },
     },
     image_url: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         isUrl: true,
+      },
+    },
+    perPizza: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      defaultValue: 10,
+      validate: {
+        isNumeric: true,
       },
     },
     stock: {
@@ -39,21 +40,14 @@ Pizza.init(
         isNumeric: true,
       },
     },
-    menu_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "menu",
-        key: "id",
-      },
-    },
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "pizza",
+    modelName: "ingredient",
   }
 );
 
-module.exports = Pizza;
+module.exports = Ingredient;
