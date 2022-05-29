@@ -4,7 +4,6 @@ const Ingredient = require("./Ingredients");
 const PizzaIngredients = require("./PizzaIngredients");
 
 // Many-to-Many assocations
-
 Pizza.belongsToMany(Ingredient, {
   through: PizzaIngredients,
   foreignKey: "pizza_id",

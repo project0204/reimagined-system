@@ -32,6 +32,14 @@ Ingredient.init(
         isNumeric: true,
       },
     },
+    stock: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      defaultValue: 10,
+      validate: {
+        isNumeric: true,
+      },
+    }
   },
   {
     sequelize,
