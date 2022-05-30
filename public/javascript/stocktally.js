@@ -22,3 +22,6 @@ async function displayStock(event) {
     }
 
 }
+
+
+//function to add data into db 
