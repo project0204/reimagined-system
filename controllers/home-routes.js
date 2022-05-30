@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const pizzaRoutes = require('./api/pizza-routes');
+// const pizzaRoutes = require('./api/Pizza.route');
 
 router.get('/', (req, res) => {
     res.render('homepage')

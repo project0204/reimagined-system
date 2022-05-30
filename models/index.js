@@ -1,18 +1,31 @@
 // import Models
+const Menu = require("./Menu");
 const Pizza = require("./Pizza");
-const Ingredient = require("./Ingredients");
+const Ingredient = require("./Ingredient");
+const PizzaIngredients = require("./PizzaIngredients");
 
-// Pizza hasMany Ingredients
-Pizza.hasMany(Ingredient, {
+// Associations
+Pizza.belongsTo(Menu, {
+  foreignKey: "menu_id",
+});
+
+Menu.hasMany(Pizza, {
+  foreignKey: "menu_id",
+});
+
+Pizza.belongsToMany(Ingredient, {
+  through: PizzaIngredients,
   foreignKey: "pizza_id",
 });
 
-// Ingredient belongsTo Pizza
-Ingredient.belongsTo(Pizza, {
-  foreignKey: "pizza_id",
+Ingredient.belongsToMany(Pizza, {
+  through: PizzaIngredients,
+  foreignKey: "ingredient_id",
 });
 
 module.exports = {
+  Menu,
   Pizza,
   Ingredient,
+  PizzaIngredients,
 };
