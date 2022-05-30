@@ -1,6 +1,6 @@
 const { PizzaIngredients, Ingredient } = require("../models");
 
-const pizza_ingredientsdata = [
+const pizza_ingredientsData = [
 {
     pizza_id: 1,
     ingredient_id: 6,
@@ -82,3 +82,7 @@ const pizza_ingredientsdata = [
     ingredient_id: 12,
 },
 ]
+
+const seedPizzaIngredients = () => PizzaIngredients.bulkCreate(pizza_ingredientsData)
+
+module.exports = seedPizzaIngredients;
