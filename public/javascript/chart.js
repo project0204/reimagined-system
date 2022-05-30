@@ -1,3 +1,5 @@
+const { INTEGER } = require("sequelize");
+
 const ctx = document.getElementById('myChart');
 const myChart = new Chart(ctx, {
     type: 'bar',
@@ -34,13 +36,23 @@ const myChart = new Chart(ctx, {
     }
 });
 async function getData () { 
-    const response =await fetch()//from data base
-    const data = await response.text(); 
+    const response =await fetch('/api/pizzas',{ 
+        method: 'GET',
+        body: JSON.stringify({
+          title:String, 
+          stock: INTEGER
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
 
-    const table = data.split('/n').slice(1); //if data from db is not returned in array then change 
+    })//from data base
+    const data = await response(); 
+  //if data from db is not returned in array then change 
+    const table = data.split('/n').slice(1);
     table.forEach(row => {
         const columns = row.split(','); //change if data not returned in array 
-        const ingrediant = columnsp[0]; 
+        const ingrediant = columns[0]; 
         const stock = columns[1];
         
     })
