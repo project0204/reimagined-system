@@ -3,7 +3,7 @@ const router = require("express").Router();
 const exphbs = require("express-handlebars");
 const sequelize = require("./config/connection");
 const path = require("path");
-const routes = require("./controllers");
+const routes = require("./routes");
 
 const PORT = process.env.PORT || 3001;
 
