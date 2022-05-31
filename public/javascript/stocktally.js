@@ -25,3 +25,38 @@ async function displayStock(event) {
 
 
 //function to add data into db 
+async function addIngredient(event) {
+    event.preventDefault();
+  
+    const ingredient_input = document.querySelector('textarea[name="ingrediantInput"]').value.trim();
+    const stock_input = document.querySelector('textarea[name="stockInput"]').value.trim();
+  
+  
+    const ingredient_id = window.location.toString().split('/')[
+      window.location.toString().split('/').length - 1
+    ];
+  
+    if (ingredient_input) {
+      const response = await fetch('/api/ingredients', {
+        method: 'POST',
+        body: JSON.stringify({
+          ingredient_id,
+          ingredient_input,
+          stock_input
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+    
+      if (response.ok) {
+        document.location.reload();
+      } else {
+        alert(response.statusText);
+      }
+    }
+}
+  
+document.querySelector('.addStock').addEventListener('submit', addIngredient);
+
+  
