@@ -13,7 +13,7 @@ Ingredient.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    ingredient_name: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -24,7 +24,7 @@ Ingredient.init(
         isUrl: true,
       },
     },
-    stock: {
+    perPizza: {
       type: DataTypes.INTEGER,
       allowNull: true,
       defaultValue: 10,
@@ -32,11 +32,12 @@ Ingredient.init(
         isNumeric: true,
       },
     },
-    pizza_id: {
+    stock: {
       type: DataTypes.INTEGER,
-      references: {
-        model: "pizza",
-        key: "id",
+      allowNull: true,
+      defaultValue: 10,
+      validate: {
+        isNumeric: true,
       },
     },
   },

@@ -1,12 +1,12 @@
 const router = require('express').Router();
 
-const homeRoutes = require('./home-routes');
-const pizzaRoutes = require('./pizza-routes');
+const homeRoutes = require('./api/home');
+const apiRoutes = require('./api');
+const { loginView, signupView } = require('../controllers/loginController')
 
-// HOME - View pizzas, deals and business information
 router.use('/', homeRoutes);
+router.use('/', loginView);
 
-// PIZZA - Create, update, delete, add pizzas
-router.use('/pizza', pizzaRoutes);
+router.use('/api', apiRoutes);
 
 module.exports = router;

@@ -39,10 +39,10 @@ Pizza.init(
         isNumeric: true,
       },
     },
-    ingredient_id: {
+    menu_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "ingredient",
+        model: "menu",
         key: "id",
       },
     },

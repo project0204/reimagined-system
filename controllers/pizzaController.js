@@ -1,6 +1,25 @@
-const { Pizza, Ingredient } = require('../models');
+const { Pizza } = require('../models')
 
-const getPizza = (req, res) => {
+const createPizza = async (req, res) => {
+    Pizza.create({
+        title: req.body.title,
+        price: req.body.price,
+        image_url: req.body.image_url,
+        stock: req.body.stock,
+        // maybe change this to req.params.ingredient_id in the future?        
+        ingredient_id: req.body.ingredient_id
+    })
+        .then(dbPostData => {
+            console.log(`THIS IS THE REQUEST ------`, req)
+            res.json(dbPostData)
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+};
+
+const getPizzaById = async (req, res) => {
     Pizza.findOne({
         where: {
             id: req.params.id
@@ -11,14 +30,8 @@ const getPizza = (req, res) => {
             'price',
             'image_url',
             'stock',
-            'ingredient_id',
         ],
-        include: [
-            {
-                model: Ingredient,
-                attributes: ['pizza_id']
-            }
-        ]
+
     })
         .then(dbPizzaData => {
             if (!dbPizzaData) {
@@ -31,9 +44,9 @@ const getPizza = (req, res) => {
             console.log(err);
             res.status(500).json(err);
         });
-}
+};
 
-const getAllPizzas = (req, res) => {
+const getAllPizzas = async (req, res) => {
     Pizza.findAll({
         attributes: [
             'id',
@@ -41,39 +54,17 @@ const getAllPizzas = (req, res) => {
             'price',
             'image_url',
             'stock',
-            'ingredient_id',
         ],
-        include: [
-            {
-                model: Ingredient,
-                attributes: ['pizza_id']
-            }
-        ]
+
     })
         .then(dbPizzaData => res.json(dbPizzaData))
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
         });
-}
+};
 
-const createPizza = (req, res) => {
-    Post.create({
-        title: req.body.title,
-        price: req.body.price,
-        image_url: req.body.image_url,
-        stock: req.body.stock,
-        // maybe change this to req.params.ingredient_id in the future?        
-        ingredient_id: req.body.ingredient_id
-    })
-        .then(dbPostData => res.json(dbPostData))
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
-}
-
-const updatePizza = (req, res) => {
+const updatePizzaById = async (req, res) => {
     Pizza.update(
         {
             ingredient_id: req.body.ingredient_id
@@ -90,9 +81,10 @@ const updatePizza = (req, res) => {
             console.log(err);
             res.status(500).json(err);
         })
-}
 
-const deletePizza = (req, res) => {
+};
+
+const deletePizzaById = async (req, res) => {
     Pizza.delete({
         where: {
             id: req.params.id
@@ -109,12 +101,12 @@ const deletePizza = (req, res) => {
             console.log(err);
             res.status(400).json(err);
         })
-}
+};
 
 module.exports = {
-    getPizza,
-    getAllPizzas,
     createPizza,
-    updatePizza,
-    deletePizza,
+    getPizzaById,
+    getAllPizzas,
+    updatePizzaById,
+    deletePizzaById
 }
