@@ -1,12 +1,13 @@
-const router = require('express').Router();
+const router = require("express").Router();
 
-const homeRoutes = require('./home-routes');
-const apiRoutes = require('./api');
+const apiRoutes = require("./api");
+const homeRoutes = require("./home-routes");
 
-// HOME - View pizzas, deals and business information
-router.use('/', homeRoutes);
+router.use("/api", apiRoutes);
+router.use("/", homeRoutes);
 
-// PIZZA - Create, update, delete, add pizzas
-router.use('/api', apiRoutes);
+router.use((req, res) => {
+  res.send("<h1>Wrong Route!</h1>");
+});
 
 module.exports = router;
