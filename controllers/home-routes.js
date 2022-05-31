@@ -1,14 +1,9 @@
 const router = require('express').Router();
-const sequelize = require('../config/connection');
-// const pizzaRoutes = require('./api/Pizza.route');
 
-router.get('/', (req, res) => {
-    res.render('homepage')
-    console.log('i should be displaying the homepage')
-});
-
-router.get('/', (req, res) => {
-    pizzaRoutes.getAllPizzas
-});
+router.get('/', (req, res) => res.render('homepage'));
+router.get('/menu', (req, res) => res.render('menu'));
+router.get('/about', (req, res) => res.render('aboutus'));
+router.get('/order', (req, res) => res.render('order'));
+router.get('/login', (req, res) => res.render('login'));
 
 module.exports = router;
