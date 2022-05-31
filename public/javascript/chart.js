@@ -50,10 +50,9 @@ async function getData () {
     const data = await response(); 
   //if data from db is not returned in array then change 
     const table = data.split('/n').slice(1);
-    table.forEach(row => {
-        const columns = row.split(','); //change if data not returned in array 
-        const ingrediant = columns[0]; 
-        const stock = columns[1];
+    table.forEach(row => { //change if data not returned in array 
+        const ingrediant = [ingrediant_title]; 
+        const stock = [stock];
         
     })
 
