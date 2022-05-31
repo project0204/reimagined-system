@@ -8,7 +8,7 @@ const customPizza = event => {
     return topping.value;
   });
 // if null 
-  if (!pizzaName || !createdBy || !toppings.length) {
+  if (!pizzaName || !size || !toppings.length) {
     return;
   }
 // combine into array to push to db
