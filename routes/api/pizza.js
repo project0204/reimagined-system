@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const pizzaController = require('../Pizza.controller')
+const pizzaController = require('../../controllers/pizzaController')
 
 const { Pizza, Ingredient } = require('../../models');
 
