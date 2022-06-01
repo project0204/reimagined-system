@@ -1,10 +1,19 @@
 // import Models
+const User = require("./User");
 const Menu = require("./Menu");
 const Pizza = require("./Pizza");
 const Ingredient = require("./Ingredient");
 const PizzaIngredients = require("./PizzaIngredients");
 
 // Associations
+User.hasMany(Menu, {
+  foreignKey: "user_id",
+});
+
+Menu.belongsTo(User, {
+  foreignKey: "user_id",
+});
+
 Pizza.belongsTo(Menu, {
   foreignKey: "menu_id",
 });
@@ -24,6 +33,7 @@ Ingredient.belongsToMany(Pizza, {
 });
 
 module.exports = {
+  User,
   Menu,
   Pizza,
   Ingredient,
