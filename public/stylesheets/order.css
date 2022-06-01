@@ -11,84 +11,39 @@
     padding: 0;
     margin: 0;
   }
+
   body {
-    background-color: #d9DCD6;
+    background-color: whitesmoke;
+
   }
-  
-  header {
-    padding: 20px;
-    font-family: ‘Trebuchet MS’, ‘Lucida Sans Unicode’, ‘Lucida Grande’, ‘Lucida Sans’, Arial, sans-serif;
-    background-color: var(--primary);
-    color: var(--tertiary);
+  .order {
+    font-size: larger; 
+  }
+  #order1{
+    font-style: normal;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: x-large;
+    align-items: center;
+  }
+
+  .table {
+    font-size: larger;
+    width:max-content
+    
+  }
+  #pizza-form {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    font-size: larger;
   }
-  
-  header h1 {
-    display: inline-block;
-    font-size: 48px;
+
+  .submit {
+    align-items: center;
+    font:400;
   }
-  header h1 .seo {
-    color: var(--tertiary);
-  }
-  header div {
-    padding-top: 15px;
-    margin-right: 20px;
-    float: right;
-    font-family: ‘Gill Sans’, ‘Gill Sans MT’, Calibri, ‘Trebuchet MS’, sans-serif;
-    font-size: 20px;
-  }
-  header div ul {
-    list-style-type: none;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-  header div ul li {
-    margin-left: 25px;
-  }
-  
-  header img {
-    width: 5%;
-    padding-right: 10px;
-    display: inline-block;
-  }
-  
-  head h2 {
-    background: var(--secondary);
-  }
-  
-  main div h2 {
-    color: var(--primary);
-    background-color: var(--tertiary);
-    padding: 15px;
-    font-size: 30px;
-    font-weight: normal;
-    text-align: center;
-  }
-  
-  main h2 {
-    color: var(--primary);
-    padding: 5px;
-    margin: 5px;
-  }
-  
-  main h3 {
-    color: var(--primary);
-    padding: 15px;
-    text-align: center;
-    background-color: var(--tertiary);
-    font-size: 35px;
-  }
-  
-  p {
-    color: var(--primary);
-    padding: 15px;
-    font-size: 30px;
-    text-align: center;
-  }
-  
+
   footer {
     padding: 30px;
     clear: both;
@@ -158,37 +113,37 @@
     margin-bottom: 10px;
     text-align: center;
   }
+
   .benefit-brand h3 {
     margin-bottom: 10px;
     text-align: center;
   }
+
   .benefit-cost h3 {
     margin-bottom: 10px;
     text-align: center;
   }
+
   .benefit-lead img {
     display: block;
     margin: 10px auto;
     max-width: 150px;
   }
+
   .benefit-brand img {
     display: block;
     margin: 10px auto;
     max-width: 150px;
   }
+
   .benefit-cost img {
     display: block;
     margin: 10px auto;
     max-width: 150px;
   }
-  .list-item{
-    justify-content: center;
-    display: flex;
-  }
-  
+
   .resulthead {
     font-size: 30px;
     border-bottom: black 5px solid;
     ;
   }
-  
