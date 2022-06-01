@@ -4,17 +4,22 @@ async function submitOrder(event) {
     event.preventDefault();
 //this function will be to submit order and subtract from stock
 //function here will select the right pizza and ingriedients 
-    const decrease = window.location.toString().split('/')[
-        window.location.toString().split('/').length - 1
-    ];
+    const decrease =[
+        sequelize.literal(
+            "UPDATE ingredient",
+          "SELECT stock FROM ingredient MINUS SELECT perPizza FROM ingredient",
+          "SET stock = stock - 1",
+          "Where pizza_id in (1,2,3,4,5,6,7,8,9)"
+        ),
 
-    const response = await fetch('/api/menu/order', {
+    ]
+
+
+    const response = await fetch('/api/pizzas', {
 
         method: 'PUT',
         body: JSON.stringify({
-            pizza_title:decrease, 
             pizza_stock:decrease,
-            ingredient_stock:decrease
             // will change this based on each ingredient used 
         }),
         headers: {
