@@ -101,10 +101,10 @@ router.put("/:id", (req, res) => {
 						ingredient_id,
 					};
 				});
+
 			const pizzaIngredientsToRemove = pizzaIngredients
 				.filter(
-					({ ingredient_id }) =>
-						!req.body.pizzaIngredientsIds.includes(ingredient_id)
+					({ ingredient_id }) => !req.body.ingredients.includes(ingredient_id)
 				)
 				.map(({ id }) => id);
 
