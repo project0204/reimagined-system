@@ -1,4 +1,5 @@
 const { INTEGER } = require("sequelize");
+const Chart = require('chart.js');
 const chartData = await getData(); 
 const ctx = document.getElementById('myChart');
 const myChart = new Chart(ctx, {
@@ -8,7 +9,7 @@ const myChart = new Chart(ctx, {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
         datasets: [{
             label: 'Stock',
-            data: customPizza.stock,
+            data: chartData,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
