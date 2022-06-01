@@ -1,0 +1,99 @@
+const router = require("express").Router();
+const sequelize = require("../../config/connection");
+const { Menu, Pizza, Ingredient, PizzaIngredients } = require("../../models");
+const withAuth = require("../../utils/auth");
+
+// The `/api/pizzas` endpoint
+
+// get all pizzas
+router.get("/", (req, res) => {
+	Pizza.findAll({
+		attributes: ["id", "title", "price", "image_url", "stock"],
+		include: [
+			{
+				model: Ingredient,
+				through: PizzaIngredients,
+				as: "ingredients",
+			},
+		],
+	})
+		.then((dbPizzaData) => res.json(dbPizzaData))
+		.catch((err) => {
+			console.log(err);
+			res.status(500).json(err);
+		});
+});
+
+// get single pizza
+router.get("/:id", (req, res) => {
+	Pizza.findOne({
+		where: {
+			id: req.params.id,
+		},
+		attributes: ["id", "title", "price", "image_url", "stock"],
+		include: [
+			{
+				model: Ingredient,
+				through: PizzaIngredients,
+				as: "ingredients",
+			},
+		],
+	})
+		.then((dbPizzaData) => {
+			if (!dbPizzaData) {
+				res.status(404).json({ message: "No pizza found with this id" });
+				return;
+			}
+			res.json(dbPizzaData);
+		})
+		.catch((err) => {
+			console.log(err);
+			res.status(500).json(err);
+		});
+});
+
+// create a pizza
+router.post("/", (req, res) => {
+	Pizza.create(req.body, { Pizza })
+		.then((dbPizzaData) => res.json(dbPizzaData))
+		.catch((err) => {
+			console.log(err);
+			res.status(500).json(err);
+		});
+});
+
+// update a pizza
+router.put("/:id", (req, res) => {
+	Pizza.update(req.body, {
+		where: {
+			id: req.params.id,
+		},
+	})
+		.then((dbPizzaData) => res.json(dbPizzaData))
+		.catch((err) => {
+			console.log(err);
+			res.status(500).json(err);
+		});
+});
+
+// delete a pizza
+router.delete("/:id", (req, res) => {
+	Pizza.destroy({
+		where: {
+			id: req.params.id,
+		},
+	})
+		.then((dbPizzaData) => {
+			if (!dbPizzaData) {
+				res.status(404).json({ message: "No pizza found with this id" });
+				return;
+			}
+			res.json(dbPizzaData);
+		})
+		.catch((err) => {
+			console.log(err);
+			res.status(500).json(err);
+		});
+});
+
+module.exports = router;
