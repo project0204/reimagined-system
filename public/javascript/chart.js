@@ -1,13 +1,14 @@
 const { INTEGER } = require("sequelize");
-
+const chartData = await getData(); 
 const ctx = document.getElementById('myChart');
 const myChart = new Chart(ctx, {
+
     type: 'bar',
     data: {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
         datasets: [{
             label: 'Stock',
-            data: [12, 19, 3, 5, 2, 3],
+            data: customPizza.stock,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -47,15 +48,7 @@ async function getData () {
         }
 
     })//from data base
-    const data = await response(); 
-  //if data from db is not returned in array then change 
-    const table = data.split('/n').slice(1);
-    table.forEach(row => { //change if data not returned in array 
-        const ingrediant = [ingrediant_title]; 
-        const stock = [stock];
-        
-    })
+    return response
 
-        
-
+    
 }
