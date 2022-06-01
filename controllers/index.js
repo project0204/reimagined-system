@@ -1,12 +1,13 @@
-const router = require('express').Router();
+const router = require("express").Router();
 
-const homeRoutes = require('./api/home');
-const apiRoutes = require('./api');
-const { loginView, signupView } = require('../controllers/loginController')
+const homeRoutes = require("./home-routes");
+const apiRoutes = require("./api");
 
-router.use('/', homeRoutes);
-router.use('/', loginView);
+router.use("/", homeRoutes);
+router.use("/api", apiRoutes);
 
-router.use('/api', apiRoutes);
+router.use((req, res) => {
+  res.send("<h1>Wrong Route!</h1>");
+});
 
 module.exports = router;
