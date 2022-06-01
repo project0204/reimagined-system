@@ -1,0 +1,19 @@
+<table>
+    <thead>
+        <tr>
+            <th>Ingrediants</th>
+            <th>Menu Item</th>
+            <th>Stock</th>   
+        </tr>
+    </thead>
+    <tbody>
+        {{#each ingredient}}
+        <tr>
+            <td>{{this. name}}</td>
+            <td>{{this. menu_name}}</td>
+            <td>{{this. stock}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+                      
