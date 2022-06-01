@@ -8,7 +8,7 @@
     <link
     href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
     rel="stylesheet"/>
-    <title>Reimagine-system</title>
+    <title>Foston Pizza</title>
 </head>
 
 <body>
@@ -19,40 +19,29 @@
 				<div class="flex space-x-7">
 					<!-- Website Logo -->
 					<div>
-						<a href="#" class="flex items-center py-4 px-2">
+						<a href="/" class="flex items-center py-4 px-2">
 							<img src="/" alt="Logo" class="h-8 w-8 mr-2" />
 							<span class="font-semibold text-gray-500 text-lg"
-								>Reimagine-system</span
+								>Foston Pizza</span
 							>
 						</a>
 					</div>
 					<!-- Primary Navbar items -->
 					<div class="hidden md:flex items-center space-x-1">
 						<a
-							href="../aboutus.handlebars"
-							class="py-4 px-2 text-green-500 border-b-4 border-green-500 font-semibold "
+							href="../aboutus"
+							class="py-4 px-2 text-green-500 hover:border-b-4 border-green-500 font-semibold"
 							>About Us </a
 						>
 						<a
-							href="../usage.handlebars"
-							class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
-							>Usage</a
-						>
-						<a
-							href="../menu.handlebars"
-							class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
-							>Menu</a
-						>
-						<a
-							href="../homepage.handlebars"
-							class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
+							href="../homepage"
+							class="py-4 px-2 text-green-500 hover:border-b-4 border-green-500 font-semibold"
 							>Stock Tally</a
 						>
 					</div>
 				</div>
 			</div>
 		</div>
-	</nav>
 
     {{#if loggedIn}}
     <button id="logout" class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-blue-400 rounded-md hover:bg-red-800 focus:outline-none focus:bg-purple-600">logout</button>
@@ -66,6 +55,7 @@
       {{{ body }}}
     </main>
   </div>
+
 {{#if loggedIn}}
 <script src="/javascript/logout.js"></script>
 {{/if}}
