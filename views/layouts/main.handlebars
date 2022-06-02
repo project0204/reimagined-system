@@ -18,59 +18,48 @@
 	<!-- Navbar goes here -->
 	<nav class="bg-white shadow-lg">
 		<div class="max-w-6xl mx-auto px-4">
-			<div class="flex justify-between">
-				<div class="flex space-x-7">
+				<div class="">
 					<!-- Website Logo -->
-					<div>
+					<div class="flex flex-row items-center">
 						<a href="/" class="flex items-center py-4 px-2">
 							<img src="/" alt="Logo" class="h-8 w-8 mr-2" />
 							<span class="font-semibold text-gray-500 text-lg"
 								>Foston Pizza</span
 							>
 						</a>
+						<!-- Primary Navbar items -->
+						<div id="nav-items" class="flex flex-row space-between">
+							<div class="hidden md:flex items-center space-between">
+							<a
+								href="../single_pizza"
+								class="py-4 px-2 text-gray-500 hover:text-green-500 transition duration-300 font-semibold "
+								>View Pizza </a>
+							<a
+								href="../menu"
+								class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
+								>Menu</a>
+							<a
+								href="../stock"
+								class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
+								>Stock</a>						
+						</div>
 					</div>
-					<!-- Primary Navbar items -->
-					<div class="hidden md:flex items-center space-x-1">
-						<a
-							href="../single_pizza"
-							class="py-4 px-2 text-gray-500 hover:text-green-500 transition duration-300 font-semibold "
-							>View Pizza </a>
-				
-						
-						<a
-							href="../menu"
-							class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
-							>Menu</a>
-						
-						<a
-							href="../stock"
-							class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
-							>Stock</a>
-							
-						
+					<span class="w-1/2"></span>
+					<!-- LOGIN BUTTON -->
+					<div>
+						<a href="/login" class="px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out flex-wrap" data-mdb-ripple="true" data-mdb-ripple-color="light" style="
+						background: linear-gradient(
+						to right,
+						#ee7724,
+						#d8363a,
+						#dd3675,
+						#b44593
+						);">login
+					</a>
+					</div>
 					</div>
 				</div>
-			</div>
 		</div>
-
-    {{#if loggedIn}}
-    <button id="logout" class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-blue-400 rounded-md hover:bg-red-800 focus:outline-none focus:bg-purple-600">logout</button>
-    {{else}}
-    <a href="/login"
-	    class="inline-block px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out mb-4"
-        data-mdb-ripple="true"
-        data-mdb-ripple-color="light"
-        style="
-            background: linear-gradient(
-            to right,
-            #ee7724,
-            #d8363a,
-            #dd3675,
-            #b44593
-            );"
-	>login/sign-up</a>
-
-    {{/if}}
   </nav>
   </header>
     <main>
