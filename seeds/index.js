@@ -1,24 +1,30 @@
-const sequelize = require('../config/connection');
-const seedIngredients = require('./ingredient-seeds');
-const seedPizzas = require('./pizza-seeds');
-const seedPizzaIngredients = require('./Pizza_ingredients-seeds');
+const sequelize = require("../config/connection");
+
+const seedIngredients = require("./ingredient-seeds");
+const seedPizzas = require("./pizza-seeds");
+const seedPizzaIngredients = require("./pizza_ingredients-seeds");
+const seedUsers = require("./user-seeds");
+const seedMenu = require("./menu-seeds");
 
 const seed = async () => {
-    await sequelize.sync({ force: true });
+	await sequelize.sync({ force: true });
+	console.log("--------------");
+	await seedUsers();
+	console.log("--------------");
 
-    console.log('--------------');
+	await seedMenu();
+	console.log("--------------");
 
-    await seedPizzas();
+	await seedPizzas();
+	console.log("--------------");
 
-    console.log('--------------');
-    console.log('<><><><><><><><>');
-    console.log('--------------');
+	await seedIngredients();
+	console.log("--------------");
 
-    await seedIngredients();
+	await seedPizzaIngredients();
+	console.log("--------------");
 
-    console.log('--------------');
-
-    await seedPizzaIngredients();
+	process.exit(0);
 };
 
 seed();

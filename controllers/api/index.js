@@ -1,7 +1,13 @@
-const router = require('express').Router();
+const router = require("express").Router();
 
-const pizzaRoute = require('./pizza');
+const userRoutes = require("./user-routes");
+const menuRoutes = require("./menu-routes");
+const pizzaRoutes = require("./pizza-routes");
+const ingredientRoutes = require("./ingredient-routes");
 
-router.use('/pizza', pizzaRoute);
+router.get("/user", userRoutes);
+router.use("/menu", menuRoutes);
+router.use("/pizzas", pizzaRoutes);
+router.use("/ingredients", ingredientRoutes);
 
 module.exports = router;
