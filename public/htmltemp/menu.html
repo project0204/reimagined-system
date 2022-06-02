@@ -8,6 +8,7 @@
     <link
     href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
     rel="stylesheet"/>
+    <link rel="stylesheet" href="../stylesheets/menu.css">
     <title>menu</title>
 </head>
 
@@ -34,17 +35,18 @@
 							href="./howtouse.html"
 							class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">How to use</a>
 							
-						
 						<a
 							href="./menu.html"
 							class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Menu</a>
 							
-						
 						<a
 							href="./Stocktally.html"
 							class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Stock Tally</a>
+
+                        <a href="./order.html"
+                           class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Order</a>
 							
-						>
+						
 					</div>
 				</div>
 			</div>
@@ -52,18 +54,18 @@
 	</nav>
 
 
-    <section class="grid place-items-center"> 
+    <section class="grid place-items-center menu"> 
         <h1>The Meateor</h1>
         <p>Beefy Bolognese sauce, pizza mozzarella, smoked ham, pepperoni, seasoned ground beef, and spicy Italian sausage</p>
-        <button type="button" >Order</button>
+        <button type="button" class="button">Order</button>
         <h1>Spicy Perogy</h1>
         <button type="button" onclick="alert('Sour cream, bacon, Cactus Cut Potatoes, pizza mozzarella, cheddar, green onions, and a dollop of sour cream.')">Order</button>
         <h1>Tropical Chicken</h1>
-        <button type="button" onclick="alert('Alfredo sauce, pizza mozzarella, cheddar, bacon, spicy chicken breast and pineapple.')">Order</button>
+        <button type="button" class="button2" onclick="alert('Alfredo sauce, pizza mozzarella, cheddar, bacon, spicy chicken breast and pineapple.')">Order</button>
         <h1> Viva Italia</h1>
-        <button type="button" onclick="alert('Signature pizza sauce, pizza mozzarella, Genoa salami, bacon, spicy Italian sausage, roasted red peppers, banana peppers, goat cheese, chili flakes, Parmesan, and a pesto drizzle.')">Order</button>       
+        <button type="button" class="button3" onclick="alert('Signature pizza sauce, pizza mozzarella, Genoa salami, bacon, spicy Italian sausage, roasted red peppers, banana peppers, goat cheese, chili flakes, Parmesan, and a pesto drizzle.')">Order</button>       
         <h1>Mediterranean</h1>
-        <button type="button" onclick="alert('Signature pizza sauce, pizza mozzarella, fresh spinach, mushrooms, olives, red onion, and feta, topped with fresh tomatoes and a pesto drizzle.')">Order</button>  
+        <button type="button" class="button4" onclick="alert('Signature pizza sauce, pizza mozzarella, fresh spinach, mushrooms, olives, red onion, and feta, topped with fresh tomatoes and a pesto drizzle.')">Order</button>  
     </section>
 
     <footer class="p-4 bg-white rounded-lg shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800">
