@@ -4,7 +4,7 @@ const { Menu, Pizza, Ingredient, PizzaIngredients } = require("../models");
 
 // The `/api/pizza` endpoint
 
-// get all pizzas for homepage
+// get all pizzas for homepage and menu pages
 router.get("/", (req, res) => {
 	Pizza.findAll({
 		attributes: ["id", "title", "price", "image_url", "stock"],
@@ -120,7 +120,7 @@ router.get("/signup", (req, res) => {
 // get stock page
 router.get("/stock", (req, res) => {
 	Ingredient.findAll({
-		attributes: ["id", "name", "image_url", "perPizza", "stock"],
+		attributes: ["id", "name", "perPizza", "stock"],
 	})
 		.then((dbIngredientData) => {
 			const ingredients = dbIngredientData.map((ingredient) =>
