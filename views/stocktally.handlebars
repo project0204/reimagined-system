@@ -3,14 +3,16 @@
 	<thead>
         <tr>
             <th>Ingredients</th>
-            <th>Image</th>
             <th>Stock</th>   
             <th>Usage per Pizza</th>
         </tr>
     </thead>
+	{{#each ingredients as |ingredient|}}
 	<tr>
-		{{> Stocktally2 ingredients}}
+		{{> Stocktally2 ingredient}}
+
 	</tr>
+	{{/each}}
 	</table>
 
 </section>
@@ -20,6 +22,15 @@
 		<div class="flex items-center border-b border-teal-500 py-2">
 			<input
 				id="ingrediantInput"
+				class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+				type="text"
+				placeholder="Name of Ingrediant"
+				aria-label="Ingrediant name"
+			/>
+		</div>
+			<div class="flex items-center border-b border-teal-500 py-2">
+			<input
+				id="perPizzaInput"
 				class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
 				type="text"
 				placeholder="Name of Ingrediant"
