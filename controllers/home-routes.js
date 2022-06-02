@@ -119,7 +119,12 @@ router.get("/signup", (req, res) => {
 
 // get stock page
 router.get("/stock", (req, res) => {
-  res.render("stocktally");
+  const tallys = req.body.map((tally) =>
+    tally.get({
+      plain: true,
+    })
+  );
+  res.render("stocktally", tallys);
 });
 
 module.exports = router;
