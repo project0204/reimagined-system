@@ -7,7 +7,7 @@ const { Pizza, Ingredient, PizzaIngredients } = require("../../models");
 // get all ingredients
 router.get("/", (req, res) => {
 	Ingredient.findAll({
-		attributes: ["id", "name", "image_url", "perPizza", "stock"],
+		attributes: ["id", "name", "perPizza", "stock"],
 		include: [
 			{
 				model: Pizza,

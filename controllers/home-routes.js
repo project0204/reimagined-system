@@ -4,8 +4,37 @@ const { Menu, Pizza, Ingredient, PizzaIngredients } = require("../models");
 
 // The `/api/pizza` endpoint
 
-// get all pizzas for homepage
+// get all pizzas for homepage and menu pages
 router.get("/", (req, res) => {
+	Pizza.findAll({
+		attributes: ["id", "title", "price", "image_url", "stock"],
+		include: [
+			{
+				model: Ingredient,
+				through: PizzaIngredients,
+				as: "ingredients",
+			},
+		],
+	})
+		.then((dbPizzaData) => {
+			const pizzas = dbPizzaData.map((pizza) =>
+				pizza.get({
+					plain: true,
+				})
+			);
+
+			res.render("menu", {
+				pizzas,
+				loggedIn: req.session.loggedIn,
+			});
+		})
+		.catch((err) => {
+			console.log(err);
+			res.status(500).json(err);
+		});
+});
+
+router.get("/menu", (req, res) => {
 	Pizza.findAll({
 		attributes: ["id", "title", "price", "image_url", "stock"],
 		include: [
@@ -86,6 +115,28 @@ router.get("/signup", (req, res) => {
 	}
 
 	res.render("signup");
+});
+
+// get stock page
+router.get("/stock", (req, res) => {
+	Ingredient.findAll({
+		attributes: ["id", "name", "perPizza", "stock"],
+	})
+		.then((dbIngredientData) => {
+			const ingredients = dbIngredientData.map((ingredient) =>
+				ingredient.get({
+					plain: true,
+				})
+			);
+			res.render("stocktally", {
+				ingredients,
+				loggedIn: req.session.loggedIn,
+			});
+		})
+		.catch((err) => {
+			console.log(err);
+			res.status(500).json(err);
+		});
 });
 
 module.exports = router;
