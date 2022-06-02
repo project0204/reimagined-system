@@ -1,71 +1,61 @@
-
-<div class="flex justify-around">
-	<!--NEW INGREDIENT COMPONENT -->
-<div class="flex flex-col items-center mt-6">
-	<section class="border border-2 p-8 rounded-xl">
-	<h1 class="display:flex justify-content:center text-2xl font-medium mb-2">Add New Ingredient</h1>
-	<form class="flex flex-col max-w-sm justify-around" id="addStock">
-		<div class="flex items-center border-b border-teal-500 py-2">
-			<input
-				id="ingrediantInput"
-				name="ingrediantInput"
-				class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
-				type="text"
-				placeholder="Ingredient name"
-				aria-label="Ingrediant name"
-			/>
-		</div>
+<div class="flex flex-row justify-around items-start">
+	<div class="flex flex-col border border-2 rounded-xl mt-10">
+	<section class="relative p-8 items-center justify-center overflow-hidden">
+		<h1 class="text-2xl font-medium mb-4">Add New Ingredient</h1>
+		<form class="flex flex-col max-w-sm " id="addStock">
 			<div class="flex items-center border-b border-teal-500 py-2">
-			<input
-				id="perPizzaInput"
-				name="perPizzaInput"
-				class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
-				type="text"
-				placeholder="Amount per pizza"
-				aria-label="per pizza input"
-			/>
-		</div>
-		<div class="flex items-center border-b border-teal-500 py-2">
-			<input
-				id="stockInput"
-				name="stockInput"
-				class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
-				type="text"
-				placeholder="Number in Stock"
-				aria-label="Stock number"
-			/>
-		</div>
-		<button
-				class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded mt-4"
-				type="submit"
-			>
-				Submit
-			</button>
-	</form>
-</section>
-</div>
-
-{{!-- TABLE --}}
-<section class="flex flex-col w-2/3 place-items-center">
-	<table style="width:80%" class="w-full align: center, border:1px solid black mt-4">
-	<thead>
-        <tr>
-            <th>Ingredients</th>
-            <th>Stock</th>   
-            <th>Usage per Pizza</th>
-        </tr>
-    </thead>
-	<div class="flex justify-around">
-		{{#each ingredients as |ingredient|}}
-	<tr>
-		{{> Stocktally2 ingredient}}
-	</tr>
-	{{/each}}
+				<input
+					id="ingrediantInput"
+					class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+					type="text"
+					placeholder="Ingredient name"
+					aria-label="Ingrediant name"
+				/>
+			</div>
+				<div class="flex items-center border-b border-teal-500 py-2">
+				<input
+					id="perPizzaInput"
+					class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+					type="text"
+					placeholder="Amount per pizza"
+					aria-label="per pizza input"
+				/>
+			</div>
+			<div class="flex items-center border-b border-teal-500 py-2">
+				<input
+					id="stockInput"
+					class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+					type="text"
+					placeholder="Number in Stock"
+					aria-label="Stock number"
+				/>
+				
+			</div>
+			<button
+					class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded mt-6"
+					type="submit"
+				>
+					Submit
+				</button>
+		</form>
+	</section>
 	</div>
-	</table>
-
-</section>
-
+	<section class="relative w-2/3 my-8 overflow-x-auto shadow-md sm:rounded-lg">
+		<table style="width:100%" class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+			<thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+				<tr>
+					<th scope="col" class="px-6 py-3 text-gray-900 dark:text-white whitespace-nowrap">Ingredients</th>
+					<th scope="col" class="px-6 py-3 text-gray-900 dark:text-white whitespace-nowrap"> Stock</th>   
+					<th scope="col" class="px-6 py-3 text-gray-900 dark:text-white whitespace-nowrap">Usage per Pizza</th>
+				</tr>
+			</thead>
+			{{#each ingredients as |ingredient|}}
+			<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700  hover:text-green-500 transition duration-300 font-semibold">
+				{{> Stocktally2 ingredient}}
+			</tr>
+			{{/each}}
+		</table>
+	</section>
 </div>
 {{! here will go the charts after finalized }}
 <canvas id="myChart" width="400" height="400"></canvas>
