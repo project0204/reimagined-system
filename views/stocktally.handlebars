@@ -1,13 +1,22 @@
 <section class="grid place-items-center">
 	<table style="width:80%" class="align: center, border:1px solid black">
-	{{#each ingredients as |ingredient|}}
-	{{> stocktally2 ingredient}}
-	{{/each}}
+	<thead>
+        <tr>
+            <th>Ingredients</th>
+            <th>Image</th>
+            <th>Stock</th>   
+            <th>Usage per Pizza</th>
+        </tr>
+    </thead>
+	<tr>
+		{{> Stocktally2 ingredients}}
+	</tr>
+	</table>
 
 </section>
 <section>
 	<h1 class="display:flex justify-content:center">Add to Stock</h1>
-	<form class="w-full max-w-sm addStock">
+	<form class="w-full max-w-sm " id="addStock">
 		<div class="flex items-center border-b border-teal-500 py-2">
 			<input
 				id="ingrediantInput"

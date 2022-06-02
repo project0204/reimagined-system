@@ -1,17 +1,12 @@
-<table>
-    <thead>
-        <tr>
-            <th>Ingredients</th>
-            <th>Stock</th>   
-        </tr>
-    </thead>
-    <tbody>
-        {{#each ingredient}}
-        <tr>
-            <td>{{name}}</td>
-            <td>{{stock}}</td>
-        </tr>
-        {{/each}}
-    </tbody>
-</table>
-                      
+
+{{#each ingredients}}
+
+    <td>{{name}}</td>
+    <td>{{image_url}}</td>
+    <td>{{stock}}</td>
+    <td>{{perPizza}}</td>
+
+{{/each}}
+
+
+                    
