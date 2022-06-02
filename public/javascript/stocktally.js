@@ -3,13 +3,13 @@ async function addIngredient(event) {
 	event.preventDefault();
 
 	const name = document
-		.querySelector('textarea[name="ingrediantInput"]')
+		.querySelector('input[name="ingrediantInput"]')
 		.value.trim();
 	const perPizza = document
-		.querySelector("textarea[name='perPizzaInput']")
+		.querySelector("input[name='perPizzaInput']")
 		.value.trim();
 	const stock = document
-		.querySelector('textarea[name="stockInput"]')
+		.querySelector('input[name="stockInput"]')
 		.value.trim();
 
 	if (name && perPizza && stock) {
@@ -26,7 +26,7 @@ async function addIngredient(event) {
 		});
 
 		if (response.ok) {
-			document.location.reload();
+			document.location.replace('/stock');
 		} else {
 			alert(response.statusText);
 		}
