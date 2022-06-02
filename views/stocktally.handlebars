@@ -1,22 +1,22 @@
-<section class="grid place-items-center">
-	<table style="width:80%" class="align: center, border:1px solid black">
-	<thead>
+<section class="relative overflow-x-auto shadow-md sm:rounded-lg">
+	<table style="width:100%" class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+	<thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
         <tr>
-            <th>Ingredients</th>
-            <th>Stock</th>   
-            <th>Usage per Pizza</th>
+            <th scope="col" class="px-6 py-3 text-gray-900 dark:text-white whitespace-nowrap">Ingredients</th>
+            <th scope="col" class="px-6 py-3 text-gray-900 dark:text-white whitespace-nowrap"> Stock</th>   
+            <th scope="col" class="px-6 py-3 text-gray-900 dark:text-white whitespace-nowrap">Usage per Pizza</th>
         </tr>
     </thead>
 	{{#each ingredients as |ingredient|}}
-	<tr>
+	<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700  hover:text-green-500 transition duration-300 font-semibold">
 		{{> Stocktally2 ingredient}}
 	</tr>
 	{{/each}}
 	</table>
 
 </section>
-<section>
-	<h1 class="display:flex justify-content:center">Add to Stock</h1>
+<section class="relative flex flex-col justify-center min-h-screen overflow-hidden">
+	<h1>Add to Stock</h1>
 	<form class="w-full max-w-sm " id="addStock">
 		<div class="flex items-center border-b border-teal-500 py-2">
 			<input
