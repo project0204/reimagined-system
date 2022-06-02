@@ -49,11 +49,11 @@
     margin-left: 25px;
   }
   
-  header img {
+  /* header img {
     width: 5%;
     padding-right: 10px;
     display: inline-block;
-  }
+  } */
   
   head h2 {
     background: var(--secondary);

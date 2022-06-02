@@ -2,7 +2,7 @@ const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
 // create our Ingredient model
-class Ingredient extends Model {}
+class Ingredient extends Model { }
 
 // create fields/columns for Ingredients model
 Ingredient.init(
@@ -16,13 +16,6 @@ Ingredient.init(
     name: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    image_url: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        isUrl: true,
-      },
     },
     perPizza: {
       type: DataTypes.INTEGER,
