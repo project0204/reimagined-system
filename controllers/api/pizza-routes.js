@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const sequelize = require("../../config/connection");
 const { Menu, Pizza, Ingredient, PizzaIngredients } = require("../../models");
-const withAuth = require("../../utils/auth");
+const auth = require("../../utils/auth");
 
 // The `/api/pizzas` endpoint
 
@@ -55,6 +55,18 @@ router.get("/:id", (req, res) => {
 // create a pizza
 router.post("/", (req, res) => {
 	Pizza.create(req.body, { Pizza })
+		.then((pizza) => {
+			if (req.body.ingredients.length) {
+				const ingredientTagIdArr = req.body.ingredients.map((ingredient_id) => {
+					return {
+						pizza_id: pizza.id,
+						ingredient_id,
+					};
+				});
+				return PizzaIngredients.bulkCreate(ingredientTagIdArr);
+			}
+			res.status(200).json(pizza);
+		})
 		.then((dbPizzaData) => res.json(dbPizzaData))
 		.catch((err) => {
 			console.log(err);
@@ -69,7 +81,39 @@ router.put("/:id", (req, res) => {
 			id: req.params.id,
 		},
 	})
-		.then((dbPizzaData) => res.json(dbPizzaData))
+		.then((pizza) => {
+			return PizzaIngredients.findAll({
+				where: {
+					pizza_id: req.params.id,
+				},
+			});
+		})
+		.then((pizzaIngredients) => {
+			const pizzaIngredientsIds = pizzaIngredients.map(
+				({ ingredient_id }) => ingredient_id
+			);
+
+			const newPizzaIngredients = req.body.ingredients
+				.filter((ingredient_id) => !pizzaIngredientsIds.includes(ingredient_id))
+				.map((ingredient_id) => {
+					return {
+						pizza_id: req.params.id,
+						ingredient_id,
+					};
+				});
+
+			const pizzaIngredientsToRemove = pizzaIngredients
+				.filter(
+					({ ingredient_id }) => !req.body.ingredients.includes(ingredient_id)
+				)
+				.map(({ id }) => id);
+
+			return Promise.all([
+				PizzaIngredients.destroy({ where: { id: pizzaIngredientsToRemove } }),
+				PizzaIngredients.bulkCreate(newPizzaIngredients),
+			]);
+		})
+		.then((updatedPizzaIngredients) => res.json(updatedPizzaIngredients))
 		.catch((err) => {
 			console.log(err);
 			res.status(500).json(err);

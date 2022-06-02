@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="../../public/stylesheets/order.css">
 	<link rel="stylesheet" href="../../public/stylesheets/menu.css">
 	<link rel="stylesheet" href="../../public/stylesheets/stocktally.css">
-    <title>Reimagine-system</title>
+    <title>Foston Pizza</title>
 </head>
 
 <body>
@@ -22,10 +22,10 @@
 				<div class="flex space-x-7">
 					<!-- Website Logo -->
 					<div>
-						<a href="#" class="flex items-center py-4 px-2">
+						<a href="/" class="flex items-center py-4 px-2">
 							<img src="/" alt="Logo" class="h-8 w-8 mr-2" />
 							<span class="font-semibold text-gray-500 text-lg"
-								>Reimagine-system</span
+								>Foston Pizza</span
 							>
 						</a>
 					</div>
@@ -59,7 +59,6 @@
 				</div>
 			</div>
 		</div>
-	</nav>
 
     {{#if loggedIn}}
     <button id="logout" class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-blue-400 rounded-md hover:bg-red-800 focus:outline-none focus:bg-purple-600">logout</button>
@@ -73,6 +72,7 @@
       {{{ body }}}
     </main>
   </div>
+
 {{#if loggedIn}}
 <script src="/javascript/logout.js"></script>
 {{/if}}

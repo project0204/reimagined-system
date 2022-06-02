@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const sequelize = require("../../config/connection");
 const { Menu, Pizza, Ingredient, PizzaIngredients } = require("../../models");
-const withAuth = require("../../utils/auth");
+const auth = require("../../utils/auth");
 
 // The `/api/menu` endpoint
 
@@ -9,6 +9,12 @@ const withAuth = require("../../utils/auth");
 router.get("/", (req, res) => {
 	Menu.findAll({
 		attributes: ["id", "menu_name"],
+		include: [
+			{
+				model: Pizza,
+				attributes: ["id", "title", "price", "image_url", "stock"]
+			},
+		],
 	})
 		.then((dbMenuData) => res.json(dbMenuData))
 		.catch((err) => {
