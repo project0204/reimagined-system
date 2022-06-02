@@ -32,27 +32,20 @@
 					<!-- Primary Navbar items -->
 					<div class="hidden md:flex items-center space-x-1">
 						<a
-							href="../aboutus.handlebars"
-							class="py-4 px-2 text-green-500 border-b-4 border-green-500 font-semibold "
-							>About Us </a>
+							href="../single_pizza"
+							class="py-4 px-2 text-gray-500 hover:text-green-500 transition duration-300 font-semibold "
+							>View Pizza </a>
+				
 						
 						<a
-							href="../usage.handlebars"
-							class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
-							>Usage</a>
-						
-						<a
-							href="../menu.handlebars"
+							href="../menu"
 							class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
 							>Menu</a>
 						
 						<a
-							href="../homepage.handlebars"
+							href="../homepage"
 							class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
-							>Stock Tally</a>
-							
-						<a href="./order.html"
-                           class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Order</a>
+							>Stock</a>
 							
 						
 					</div>
@@ -63,8 +56,22 @@
     {{#if loggedIn}}
     <button id="logout" class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-blue-400 rounded-md hover:bg-red-800 focus:outline-none focus:bg-purple-600">logout</button>
     {{else}}
-    <a href="/login">login</a>
-    <a href="/signup">Sign Up!</a>
+    <a href="/login"
+	                class="inline-block px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out mb-4"
+                      data-mdb-ripple="true"
+                      data-mdb-ripple-color="light"
+                      style="
+                        background: linear-gradient(
+                          to right,
+                          #ee7724,
+                          #d8363a,
+                          #dd3675,
+                          #b44593
+                        );
+                      "
+ 
+	>login/sign-up</a>
+
     {{/if}}
   </nav>
   </header>

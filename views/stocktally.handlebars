@@ -1,51 +1,9 @@
 <section class="grid place-items-center">
 	<table style="width:80%" class="align: center, border:1px solid black">
-		<tr>
-			<th>Ingredients</th>
-			<th>Menu Item</th>
-			<th>Stock</th>
-		</tr>
-		<tr>
-			<td>Cheese</td>
-			<td>Pizza</td>
-			<td>{{Cheese}}</td>
-		</tr>
-		<tr>
-			<td>Lctose freeCheese</td>
-			<td>Pizza</td>
-			<td>{{lctosefreecheese}}</td>
-		</tr>
-		<tr>
-			<td>Pepperoni</td>
-			<td>Pizza</td>
-			<td>{{Pepperoni}}</td>
-		</tr>
-		<tr>
-			<td>Bacon</td>
-			<td>Pizza</td>
-			<td>{{bacon}}</td>
-		</tr>
-		<tr>
-			<td>Sausage</td>
-			<td>Pizza</td>
-			<td>{{sausage}}</td>
-		</tr>
-		<tr>
-			<td>Pineapple</td>
-			<td>Pizza</td>
-			<td>{{pinapple}}</td>
-		</tr>
-		<tr>
-			<td>Red Onion</td>
-			<td>Pizza</td>
-			<td>{{redonions}}</td>
-		</tr>
-		<tr>
-			<td>Green Peppe</td>
-			<td>Pizza</td>
-			<td>{{greenpepper}}</td>
-		</tr>
-	</table>
+	{{#each ingredients as |ingredient|}}
+	{{> stocktally2 ingredient}}
+	{{/each}}
+
 </section>
 <section>
 	<h1 class="display:flex justify-content:center">Add to Stock</h1>
