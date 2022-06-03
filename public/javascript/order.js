@@ -1,17 +1,21 @@
-const { INTEGER } = require("sequelize");
-
 async function submitOrder(event) {
     event.preventDefault();
 //this function will be to submit order and subtract from stock
 //function here will select the right pizza and ingriedients 
-    const decrease =[
+    const select =[
         sequelize.literal(
-            "UPDATE ingredient",
           "SELECT stock FROM ingredient MINUS SELECT perPizza FROM ingredient",
-          "SET stock = stock - 1",
           "Where pizza_id in (1,2,3,4,5,6,7,8,9)"
+          //need one query to get the current value of the stock which is going to be selected 
         ),
 
+    ]
+    const update = [
+        sequelize.literal(
+            "UPDATE ingredient",
+            "SET stock = stock - 1",
+            //another query to update with the new value 
+        )
     ]
 
 
@@ -19,7 +23,8 @@ async function submitOrder(event) {
 
         method: 'PUT',
         body: JSON.stringify({
-            pizza_stock:decrease,
+            select,
+            update//not sure if this is correct 
             // will change this based on each ingredient used 
         }),
         headers: {
@@ -33,118 +38,6 @@ async function submitOrder(event) {
     }
 
 }
-// async function submitOrder2(event) {
-//     event.preventDefault();
-// //this function will be to submit order and subtract from stock
-// //function here will select the right pizza and ingriedients 
-//     const decrease = window.location.toString().split('/')[
-//         window.location.toString().split('/').length - 1
-//     ];
-
-//     const response = await fetch('/api/menu/order/id:2', {
-//         method: 'PUT',
-//         body: JSON.stringify({
-//             pizza_stock:decrease, 
-//             ingredient_stock:decrease
-//             // will change this based on each ingredient used 
-//         }),
-//         headers: {
-//         'Content-Type': 'application/json'
-//         }
-//     });
-//     if (response.ok) {
-//         document.location.reload();
-//       } else {
-//         alert(response.statusText);
-//     }
-
-// }
-// async function submitOrder3(event) {
-//     event.preventDefault();
-// //this function will be to submit order and subtract from stock
-// //function here will select the right pizza and ingriedients 
-//     const decrease = window.location.toString().split('/')[
-//         window.location.toString().split('/').length - 1
-//     ];
-
-//     const response = await fetch('/api/menu/order/id:3', {
-//         method: 'PUT',
-//         body: JSON.stringify({
-//             pizza_stock:decrease, 
-//             ingredient_stock:decrease
-//             // will change this based on each ingredient used 
-//         }),
-//         headers: {
-//         'Content-Type': 'application/json'
-//         }
-//     });
-//     if (response.ok) {
-//         document.location.reload();
-//       } else {
-//         alert(response.statusText);
-//     }
-
-// }
-// async function submitOrder4(event) {
-//     event.preventDefault();
-// //this function will be to submit order and subtract from stock
-// //function here will select the right pizza and ingriedients 
-//     const decrease = window.location.toString().split('/')[
-//         window.location.toString().split('/').length - 1
-//     ];
-
-//     const response = await fetch('/api/menu/order/id:4', {
-//         method: 'PUT',
-//         body: JSON.stringify({
-//             pizza_stock:decrease, 
-//             ingredient_stock:decrease
-//             // will change this based on each ingredient used 
-//         }),
-//         headers: {
-//         'Content-Type': 'application/json'
-//         }
-//     });
-//     if (response.ok) {
-//         document.location.reload();
-//       } else {
-//         alert(response.statusText);
-//     }
-
-// }
-// async function submitOrder5(event) {
-//     event.preventDefault();
-// //this function will be to submit order and subtract from stock
-// //function here will select the right pizza and ingriedients 
-//     const decrease = window.location.toString().split('/')[
-//         window.location.toString().split('/').length - 1
-//     ];
-
-//     const response = await fetch('/api/menu/order/id:5', {
-//         method: 'PUT',
-//         body: JSON.stringify({
-//             pizza_stock:decrease, 
-//             ingredient_stock:decrease
-//             // will change this based on each ingredient used 
-//         }),
-//         headers: {
-//         'Content-Type': 'application/json'
-//         }
-//     });
-//     if (response.ok) {
-//         document.location.reload();
-//       } else {
-//         alert(response.statusText);
-//     }
-
-// }
-
-//funct
 
 
-
-
-
-document.querySelector('#{{pizza.title}}').addEventListener('click', submitOrder);
-
-
-
+document.querySelector('#').addEventListener('click', submitOrder);//need to find a way to reference eahc pizza order card since they have different id
