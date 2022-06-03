@@ -45,7 +45,7 @@ router.get("/:id", (req, res) => {
 });
 
 // create a menu item
-router.post("/", (req, res) => {
+router.post("/", auth, (req, res) => {
 	Menu.create({
 		menu_name: req.body.menu_name,
 	})
@@ -57,7 +57,7 @@ router.post("/", (req, res) => {
 });
 
 // edit a menu item
-router.put("/:id", (req, res) => {
+router.put("/:id", auth, (req, res) => {
 	Menu.update(
 		{
 			menu_name: req.body.menu_name,
@@ -82,7 +82,7 @@ router.put("/:id", (req, res) => {
 });
 
 // delete a menu item
-router.delete("/:id", (req, res) => {
+router.delete("/:id", auth, (req, res) => {
 	Menu.destroy({
 		where: {
 			id: req.params.id,

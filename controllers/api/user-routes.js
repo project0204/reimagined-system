@@ -6,6 +6,7 @@ const {
 	Ingredient,
 	PizzaIngredients,
 } = require("../../models");
+const auth = require("../../utils/auth");
 
 // get all users
 router.get("/", (req, res) => {
@@ -105,7 +106,7 @@ router.post("/logout", (req, res) => {
 	}
 });
 
-router.put("/:id", (req, res) => {
+router.put("/:id", auth, (req, res) => {
 	// expects {email: 'lernantino@gmail.com', password: 'password1234'}
 
 	// pass in req.body instead to only update what's passed through
@@ -128,7 +129,7 @@ router.put("/:id", (req, res) => {
 		});
 });
 
-router.delete("/:id", (req, res) => {
+router.delete("/:id", auth, (req, res) => {
 	User.destroy({
 		where: {
 			id: req.params.id,

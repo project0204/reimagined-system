@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection.js");
 const { Menu, Pizza, Ingredient, PizzaIngredients } = require("../models");
+const auth = require("../utils/auth");
 
 // The `/api/pizza` endpoint
 
@@ -118,7 +119,7 @@ router.get("/signup", (req, res) => {
 });
 
 // get stock page
-router.get("/stock", (req, res) => {
+router.get("/stock", auth, (req, res) => {
 	Ingredient.findAll({
 		attributes: ["id", "name", "perPizza", "stock"],
 	})
