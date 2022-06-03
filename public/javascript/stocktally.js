@@ -33,4 +33,4 @@ async function addIngredient(event) {
 	}
 }
 
-document.querySelector(".addStock").addEventListener("submit", addIngredient);
+document.querySelector("#addStock").addEventListener("submit", addIngredient);
