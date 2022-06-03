@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const sequelize = require("../../config/connection");
 const { Pizza, Ingredient, PizzaIngredients } = require("../../models");
+const auth = require("../../utils/auth");
 
 // The `/api/ingredients` endpoint
 
@@ -57,7 +58,7 @@ router.get("/:id", (req, res) => {
 });
 
 // create an ingredient
-router.post("/", (req, res) => {
+router.post("/", auth, (req, res) => {
 	Ingredient.create(req.body, { Ingredient })
 		.then((dbIngredientData) => res.json(dbIngredientData))
 		.catch((err) => {
@@ -67,7 +68,7 @@ router.post("/", (req, res) => {
 });
 
 // update an ingredient
-router.put("/:id", (req, res) => {
+router.put("/:id", auth, (req, res) => {
 	Ingredient.update(req.body, {
 		where: {
 			id: req.params.id,
@@ -81,7 +82,7 @@ router.put("/:id", (req, res) => {
 });
 
 // delete an ingredient
-router.delete("/:id", (req, res) => {
+router.delete("/:id", auth, (req, res) => {
 	Ingredient.destroy({
 		where: {
 			id: req.params.id,

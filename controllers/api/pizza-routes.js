@@ -53,7 +53,7 @@ router.get("/:id", (req, res) => {
 });
 
 // create a pizza
-router.post("/", (req, res) => {
+router.post("/", auth, (req, res) => {
 	Pizza.create(req.body, { Pizza })
 		.then((pizza) => {
 			if (req.body.ingredients.length) {
@@ -75,7 +75,7 @@ router.post("/", (req, res) => {
 });
 
 // update a pizza
-router.put("/:id", (req, res) => {
+router.put("/:id", auth, (req, res) => {
 	Pizza.update(req.body, {
 		where: {
 			id: req.params.id,
@@ -121,7 +121,7 @@ router.put("/:id", (req, res) => {
 });
 
 // delete a pizza
-router.delete("/:id", (req, res) => {
+router.delete("/:id", auth, (req, res) => {
 	Pizza.destroy({
 		where: {
 			id: req.params.id,
