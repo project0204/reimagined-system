@@ -5,7 +5,7 @@ const menuRoutes = require("./menu-routes");
 const pizzaRoutes = require("./pizza-routes");
 const ingredientRoutes = require("./ingredient-routes");
 
-router.get("/user", userRoutes);
+router.use("/user", userRoutes);
 router.use("/menu", menuRoutes);
 router.use("/pizzas", pizzaRoutes);
 router.use("/ingredients", ingredientRoutes);
