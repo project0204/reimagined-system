@@ -2,15 +2,9 @@
 async function addIngredient(event) {
 	event.preventDefault();
 
-	const name = document
-		.querySelector('input[name="ingrediantInput"]')
-		.value.trim();
-	const perPizza = document
-		.querySelector("input[name='perPizzaInput']")
-		.value.trim();
-	const stock = document
-		.querySelector('input[name="stockInput"]')
-		.value.trim();
+	const name = document.querySelector("#ingredientInput").value.trim();
+	const perPizza = document.querySelector("#perPizzaInput").value.trim();
+	const stock = document.querySelector("#stockInput").value.trim();
 
 	if (name && perPizza && stock) {
 		const response = await fetch("/api/ingredients", {
@@ -26,11 +20,11 @@ async function addIngredient(event) {
 		});
 
 		if (response.ok) {
-			document.location.replace('/stock');
+			document.location.replace("/stock");
 		} else {
 			alert(response.statusText);
 		}
 	}
 }
 
-document.querySelector(".addStock").addEventListener("submit", addIngredient);
+document.querySelector("#addStock").addEventListener("submit", addIngredient);
