@@ -1,0 +1,49 @@
+<section>
+	<a href="/dashboard"> &larr; Back to Dashboard</a>
+  <div class="flex flex-row justify-around items-start">
+	<div class="flex flex-col border border-2 rounded-xl mt-10">
+	<section class="relative p-8 items-center justify-center overflow-hidden">
+		<h1 class="text-2xl font-medium mb-4">Editing {{ingredient.name}}</h1>
+    
+		<form class="flex flex-col max-w-sm " id="editStock">
+			<div class="flex items-center border-b border-teal-500 py-2">
+				<input
+					id="ingredientInput"
+					class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+					type="text"
+					placeholder="New ingredient name"
+					aria-label="Ingredient name"
+				/>
+			</div>
+			<div class="flex items-center border-b border-teal-500 py-2">
+				<input
+					id="perPizzaInput"
+					class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+					type="text"
+					placeholder="New amount per pizza"
+					aria-label="per pizza input"
+				/>
+			</div>
+			<div class="flex items-center border-b border-teal-500 py-2">
+				<input
+					id="stockInput"
+					class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+					type="text"
+					placeholder="New number in stock"
+					aria-label="Stock number"
+				/>	
+			</div>
+			<button
+					class="edit-btn flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded mt-6"
+					type="submit"
+				>
+					Save Ingredient
+			</button>
+      <button type="button" class="delete-btn flex-shrink-0 bg-red-600 hover:bg-red-800 border-red-600 hover:border-red-800 text-sm border-4 text-white py-1 px-2 rounded mt-6">Delete Ingredient</button>
+		</form>
+	</section>
+	</div>
+</section>
+
+<script src="/javascript/edit-ingredient.js"></script>
+<script src="/javascript/delete-ingredient.js"></script>
