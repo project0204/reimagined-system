@@ -5,7 +5,7 @@ const auth = require("../utils/auth");
 
 // The `/api/pizza` endpoint
 
-// get all pizzas for homepage and menu pages
+// get all pizzas for homepage
 router.get("/", (req, res) => {
 	Pizza.findAll({
 		attributes: ["id", "title", "price", "image_url", "stock"],
@@ -24,36 +24,7 @@ router.get("/", (req, res) => {
 				})
 			);
 
-			res.render("menu", {
-				pizzas,
-				loggedIn: req.session.loggedIn,
-			});
-		})
-		.catch((err) => {
-			console.log(err);
-			res.status(500).json(err);
-		});
-});
-
-router.get("/menu", (req, res) => {
-	Pizza.findAll({
-		attributes: ["id", "title", "price", "image_url", "stock"],
-		include: [
-			{
-				model: Ingredient,
-				through: PizzaIngredients,
-				as: "ingredients",
-			},
-		],
-	})
-		.then((dbPizzaData) => {
-			const pizzas = dbPizzaData.map((pizza) =>
-				pizza.get({
-					plain: true,
-				})
-			);
-
-			res.render("menu", {
+			res.render("homepage", {
 				pizzas,
 				loggedIn: req.session.loggedIn,
 			});
@@ -118,8 +89,8 @@ router.get("/signup", (req, res) => {
 	res.render("signup");
 });
 
-// get stock page
-router.get("/stock", auth, (req, res) => {
+// get dashboard page
+router.get("/dashboard", auth, (req, res) => {
 	Ingredient.findAll({
 		attributes: ["id", "name", "perPizza", "stock"],
 	})
@@ -129,7 +100,7 @@ router.get("/stock", auth, (req, res) => {
 					plain: true,
 				})
 			);
-			res.render("stocktally", {
+			res.render("dashboard", {
 				ingredients,
 				loggedIn: req.session.loggedIn,
 			});
