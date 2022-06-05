@@ -27,4 +27,6 @@ async function editFormHandler(event) {
 	}
 }
 
-document.querySelector(".edit-btn").addEventListener("submit", editFormHandler);
+document
+	.querySelector("#editStock")
+	.addEventListener("submit", editFormHandler);
