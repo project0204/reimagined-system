@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,23 +10,40 @@
     rel="stylesheet"/>
     <title>Foston Pizza</title>
 </head>
+=======
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="https://cdn.tailwindcss.com"></script>
+		<link
+			href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+			rel="stylesheet"
+		/>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"
+		></script>
+>>>>>>> develop
 
-<body>
-	<!-- Navbar goes here -->
-	<nav class="bg-white shadow-lg">
-		<div class="max-w-6xl mx-auto px-4">
+		<title>Foston Pizza</title>
+	</head>
+
+	<body>
+		<!-- Navbar goes here -->
+		<nav class="bg-white shadow-lg">
+			<div class="max-w-6xl mx-auto px-4">
 				<div class="">
 					<!-- Website Logo -->
 					<div class="flex flex-row items-center">
 						<a href="/" class="flex items-center py-4 px-2">
-							<img src="/assets/images/fp-logo.png" alt="">
-							<span class="font-semibold text-gray-500 text-lg ml-4"
-								>Foston Pizza</span
-							>
+							<img src="/assets/images/fp-logo.png" alt="" />
+							<span class="font-semibold text-gray-500 text-lg ml-4">Foston
+								Pizza</span>
 						</a>
 						<!-- Primary Navbar items -->
 						<div id="nav-items" class="flex flex-row space-between">
 							<div class="hidden md:flex items-center space-between">
+<<<<<<< HEAD
 
 							<a
 								href="../stock"
@@ -38,17 +55,56 @@
 					<!-- LOGIN BUTTON -->
 					<div >
 						<a href="/login" class="px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out flex-wrap" data-mdb-ripple="true" data-mdb-ripple-color="light" style="
+=======
+								{{#if loggedIn}}
+									<a
+										href="/dashboard"
+										class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
+									>Ingredient Dashboard</a>
+								{{/if}}
+							</div>
+						</div>
+						<span class="w-1/2"></span>
+						<!-- LOGIN BUTTON -->
+						<div>
+							{{#if loggedIn}}
+								<button
+									id="logout"
+									class="px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out flex-wrap"
+									data-mdb-ripple="true"
+									data-mdb-ripple-color="light"
+									style="
+>>>>>>> develop
 						background: linear-gradient(
 						to right,
 						#ee7724,
 						#d8363a,
 						#dd3675,
 						#b44593
-						);">login
-					</a>
-					</div>
+						);"
+								>logout
+								</button>
+							{{else}}
+								<a
+									href="/login"
+									class="px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out flex-wrap"
+									data-mdb-ripple="true"
+									data-mdb-ripple-color="light"
+									style="
+						background: linear-gradient(
+						to right,
+						#ee7724,
+						#d8363a,
+						#dd3675,
+						#b44593
+						);"
+								>login
+								</a>
+							{{/if}}
+						</div>
 					</div>
 				</div>
+<<<<<<< HEAD
 		</div>
   </nav>
   </header>
@@ -61,4 +117,17 @@
 {{/if}}
 <script   src="https://code.jquery.com/jquery-3.6.0.slim.min.js"   integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="   crossorigin="anonymous"></script>
 </body>
+=======
+			</div>
+		</nav>
+		<main>
+			{{{body}}}
+		</main>
+
+		{{#if loggedIn}}
+			<script src="/javascript/logout.js"></script>
+		{{/if}}
+
+	</body>
+>>>>>>> develop
 </html>
