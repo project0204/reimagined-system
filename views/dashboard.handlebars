@@ -60,12 +60,26 @@
   	</table>
   </section>
 {{/if}}
-</div>
 
-<div>
-<canvas id="myChart" width="auto" height="auto"></canvas>
 </div>
+<div class="chartContainer">
+	<canvas id="myChart" ></canvas>
+</div>
+<style>
+	.chartcontainer{
+		text-align: center;
 
+	}
+	canvas{
+    width: 80% !important;
+    height: 400px !important;
+    margin: 0 auto;
+	padding-left: 300px auto;
+}
+</style>
+
+
+<script src="/javascript/chart.js"></script>
 <script src="/javascript/add-ingredient.js"></script>
 <script src="/javascript/edit-ingredient.js"></script>
 <script src="/javascript/delete-ingredient.js"></script>
